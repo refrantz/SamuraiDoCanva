@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ezgif-4-8ed237dc81.png-8bc10dbc89cf12845ded66b2f528ab88.stex"
+path="res://.import/skyline-a.png-08d8c94f3fbe27e40b25b3a8b46d6964.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ezgif-4-8ed237dc81.png"
-dest_files=[ "res://.import/ezgif-4-8ed237dc81.png-8bc10dbc89cf12845ded66b2f528ab88.stex" ]
+source_file="res://Sprites/skyline-a.png"
+dest_files=[ "res://.import/skyline-a.png-08d8c94f3fbe27e40b25b3a8b46d6964.stex" ]
 
 [params]
 

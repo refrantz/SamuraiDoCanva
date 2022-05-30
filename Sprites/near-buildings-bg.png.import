@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/skyline-a.png-ab2e9dae49d74131393aac558d946cb2.stex"
+path="res://.import/near-buildings-bg.png-a5917312297621c7b27ce3b89e9d90bf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://skyline-a.png"
-dest_files=[ "res://.import/skyline-a.png-ab2e9dae49d74131393aac558d946cb2.stex" ]
+source_file="res://Sprites/near-buildings-bg.png"
+dest_files=[ "res://.import/near-buildings-bg.png-a5917312297621c7b27ce3b89e9d90bf.stex" ]
 
 [params]
 
