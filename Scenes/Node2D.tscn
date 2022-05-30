@@ -1,14 +1,18 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sprites/skyline-a.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/background/skyline-a.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/tileset.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/near-buildings-bg.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/background/near-buildings-bg.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Turret.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Turret.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/background/buildings-bg.png" type="Texture" id=7]
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 0, 0, 50, 0, 50, 20, 0, 20 )
+[sub_resource type="ConcavePolygonShape2D" id=5]
+segments = PoolVector2Array( 0, 0, 50, 0, 50, 0, 50, 20, 50, 20, 0, 20, 0, 20, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 45.7974, 3.41481, 39.9367, 17.648, 10.3541, 17.9271, 3.37703, 3.13574, 3.37703, 3.41481 )
 
 [sub_resource type="TileSet" id=4]
 0/name = "near-buildings-bg.png 0"
@@ -77,61 +81,67 @@ points = PoolVector2Array( 0, 0, 50, 0, 50, 20, 0, 20 )
 4/navigation_offset = Vector2( 0, 0 )
 4/shape_offset = Vector2( 0, 0 )
 4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape = SubResource( 3 )
+4/shape = SubResource( 5 )
 4/shape_one_way = false
 4/shape_one_way_margin = 1.0
 4/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 4/z_index = 0
 
-[sub_resource type="ParticlesMaterial" id=2]
-flag_disable_z = true
-spread = 180.0
-gravity = Vector3( 0, 98, 0 )
-initial_velocity = 9.8
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-angle = 28.2
-angle_random = 1.0
-
 [node name="Node2D" type="Node2D"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -547.0
-margin_top = -1.0
-margin_right = 1024.0
-margin_bottom = 1577.0
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2( 3, 3 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 128, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 2 )
-expand = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, 100 )
+scale = Vector2( 3, 3 )
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 144, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 7 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2( 2.4, 2.4 )
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 520, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 4 )
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 36, -126 )
 tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 1769438, 1, 0, 1834993, 1, 0, 1835000, 2, 0, 1769475, 1, 0, 1769504, 2, 0, 1769518, 1, 0, 1769524, 2, 0, 1769531, 1, 0, 1900522, 0, 0, 1835017, 0, 0, 1835023, 3, 0, 1835048, 3, 0, 1900568, 3, 0, 2031642, 4, 0, 2031643, 4, 0, 2031644, 4, 0, 2031645, 4, 0, 2031646, 4, 0, 2031647, 4, 0, 2031648, 4, 0, 2031649, 4, 0, 2097152, 4, 0, 2097153, 4, 0, 2097154, 4, 0, 2097155, 4, 0, 2097156, 4, 0, 2097157, 4, 0, 2097158, 4, 0, 2097159, 4, 0, 2097160, 4, 0, 2097161, 4, 0, 2293774, 4, 0, 2293775, 4, 0, 2293776, 4, 0, 2293777, 4, 0, 2293778, 4, 0, 2293797, 4, 0, 2293798, 4, 0, 2293799, 4, 0, 2293800, 4, 0, 2293801, 4, 0, 2293802, 4, 0, 2686942, 4, 0, 2686943, 4, 0, 2686944, 4, 0, 2686945, 4, 0, 2686946, 4, 0, 2686947, 4, 0, 2686948, 4, 0, 2686949, 4, 0, 2686950, 4, 0, 2686951, 4, 0, 2686952, 4, 0, 2686953, 4, 0, 2686954, 4, 0, 2686955, 4, 0, 2686956, 4, 0, 2686957, 4, 0, 2686958, 4, 0, 2686959, 4, 0, 2686960, 4, 0, 2686961, 4, 0, 2686962, 4, 0, 2686965, 4, 0, 2686966, 4, 0, 2686967, 4, 0, 2686968, 4, 0, 2686969, 4, 0, 2686970, 4, 0, 2686971, 4, 0, 2686972, 4, 0, 2686973, 4, 0, 2686974, 4, 0, 2686975, 4, 0, 2621440, 4, 0, 2621441, 4, 0, 2621442, 4, 0, 2621443, 4, 0, 2621444, 4, 0, 2621445, 4, 0, 2621446, 4, 0, 2621447, 4, 0, 2621448, 4, 0, 2621449, 4, 0, 2621450, 4, 0, 2621451, 4, 0, 2621452, 4, 0, 2621453, 4, 0, 2621454, 4, 0, 2621455, 4, 0, 2621456, 4, 0, 2621457, 4, 0, 2621458, 4, 0, 2621459, 4, 0, 2621460, 4, 0, 2621461, 4, 0, 2621462, 4, 0, 2621463, 4, 0, 2621464, 4, 0, 2621465, 4, 0, 2621466, 4, 0, 2621467, 4, 0, 2621468, 4, 0, 2621469, 4, 0, 2621470, 4, 0, 2621471, 4, 0, 2621472, 4, 0, 2621473, 4, 0, 2621474, 4, 0, 2621475, 4, 0, 2621476, 4, 0, 2621477, 4, 0, 2621478, 4, 0, 2621479, 4, 0, 2621480, 4, 0, 2621481, 4, 0, 2621482, 4, 0, 2621483, 4, 0, 2621484, 4, 0, 2621485, 4, 0, 2621486, 4, 0, 2621487, 4, 0, 2621488, 4, 0, 2621489, 4, 0, 2621490, 4, 0, 2621491, 4, 0, 2621492, 4, 0, 2621493, 4, 0, 2621494, 4, 0, 2621495, 4, 0, 2621496, 4, 0, 2621497, 4, 0, 2621498, 4, 0, 2621499, 4, 0, 2621500, 4, 0, 2621501, 4, 0, 2621502, 4, 0 )
+tile_data = PoolIntArray( 524294, 4, 0, 655286, 4, 0, 655287, 4, 0, 655288, 4, 0, 655289, 4, 0, 655290, 4, 0, 655291, 4, 0, 655292, 4, 0, 655293, 4, 0, 655294, 4, 0, 655295, 4, 0, 655296, 4, 0, 655297, 4, 0, 655298, 4, 0, 655299, 4, 0, 655300, 4, 0, 655301, 4, 0, 655302, 4, 0, 655303, 4, 0, 655304, 4, 0, 655305, 4, 0, 655306, 4, 0, 655307, 4, 0, 655308, 4, 0, 655309, 4, 0, 655310, 4, 0, 655311, 4, 0, 655312, 4, 0, 655313, 4, 0, 655314, 4, 0, 655315, 4, 0, 655316, 4, 0, 655317, 4, 0, 655318, 4, 0, 655319, 4, 0, 655320, 4, 0, 655321, 4, 0, 655322, 4, 0, 655323, 4, 0, 655324, 4, 0, 655325, 4, 0, 655326, 4, 0, 655327, 4, 0, 655328, 4, 0, 655329, 4, 0, 655330, 4, 0, 655331, 4, 0, 655332, 4, 0, 655333, 4, 0, 655334, 4, 0, 655335, 4, 0, 655336, 4, 0, 655337, 4, 0, 655338, 4, 0, 655339, 4, 0, 655340, 4, 0, 655341, 4, 0, 655342, 4, 0, 655343, 4, 0, 655344, 4, 0, 655345, 4, 0, 655346, 4, 0, 655347, 4, 0, 655348, 4, 0, 655349, 4, 0, 655350, 4, 0, 655351, 4, 0, 655352, 4, 0, 655353, 4, 0, 655354, 4, 0, 655355, 4, 0, 655356, 4, 0, 655358, 4, 0, 655359, 4, 0, 589824, 4, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 4, 0, 589829, 4, 0, 589830, 4, 0, 589831, 4, 0, 589832, 4, 0, 589833, 4, 0, 589834, 4, 0, 589835, 4, 0, 589836, 4, 0, 589837, 4, 0, 589838, 4, 0, 589839, 4, 0, 589840, 4, 0, 589841, 4, 0, 589842, 4, 0, 589843, 4, 0, 589844, 4, 0, 589845, 4, 0, 589846, 4, 0, 589847, 4, 0, 589848, 4, 0, 589849, 4, 0, 589850, 4, 0, 589851, 4, 0, 589852, 4, 0, 589853, 4, 0, 589854, 4, 0, 589855, 4, 0, 589856, 4, 0, 589857, 4, 0, 589858, 4, 0, 589859, 4, 0, 589860, 4, 0, 589861, 4, 0, 589862, 4, 0, 589863, 4, 0, 589864, 4, 0, 589865, 4, 0, 589866, 4, 0, 589867, 4, 0, 589868, 4, 0, 589869, 4, 0, 589870, 4, 0, 589871, 4, 0, 589872, 4, 0, 589873, 4, 0, 589874, 4, 0, 589875, 4, 0, 589876, 4, 0, 589877, 4, 0, 589878, 4, 0, 589879, 4, 0, 589880, 4, 0, 589881, 4, 0, 589882, 4, 0, 589883, 4, 0, 589884, 4, 0, 589885, 4, 0, 589886, 4, 0, 589887, 4, 0, 589888, 4, 0, 589889, 4, 0, 589890, 4, 0, 589891, 4, 0, 589892, 4, 0, 589893, 4, 0, 589894, 4, 0, 589895, 4, 0, 589896, 4, 0, 589897, 4, 0, 589898, 4, 0, 589899, 4, 0, 589900, 4, 0, 589901, 4, 0, 589902, 4, 0, 589903, 4, 0, 589904, 4, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 341, 392 )
-
-[node name="Particles2D" type="Particles2D" parent="Player"]
-position = Vector2( -33, -17 )
-emitting = false
-lifetime = 5.51
-speed_scale = 2.75
-explosiveness = 0.05
-randomness = 0.71
-process_material = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( -17, -7 )
 current = true
+zoom = Vector2( 0.7, 0.7 )
 
 [node name="Turret" parent="." instance=ExtResource( 5 )]
-position = Vector2( 449, 598 )
+position = Vector2( 230, -26 )
 script = ExtResource( 6 )
