@@ -15,12 +15,12 @@ func get_input():
 	
 	velocity.x *= WALK_SPEED
 	
-	if Input.is_action_pressed("attack"):
+	if Input.is_action_just_pressed("attack"):
 		sprite.play("attack")	
-	elif Input.is_action_pressed("defense"):
+	elif Input.is_action_just_pressed("defense"):
 		sprite.play("defense")
-	else:
-		sprite.play("idle")
+	
+	#sprite.play("idle")
 		
 	if jump and is_on_floor():
 		jumping = true
