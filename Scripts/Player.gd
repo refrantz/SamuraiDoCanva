@@ -16,9 +16,9 @@ func get_input():
 	velocity.x *= WALK_SPEED
 	
 	if Input.is_action_just_pressed("attack"):
-		sprite.play("attack")	
+		sprite.play("attack1")	
 	elif Input.is_action_just_pressed("defense"):
-		sprite.play("defense")
+		sprite.play("block")
 	
 	#sprite.play("idle")
 		
