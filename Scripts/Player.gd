@@ -13,12 +13,12 @@ func get_input():
 	var jump = Input.is_action_just_pressed('up')
 	#velocity.y = Input.get_action_strength("down")-Input.get_action_strength("up")
 	
-	velocity.x *= WALK_SPEED
+	if(velocity.x > 0):
+		sprite.scale.x = 0.6
+	elif(velocity.x < 0):
+		sprite.scale.x = -0.6
 	
-	if Input.is_action_just_pressed("attack"):
-		sprite.play("attack1")	
-	elif Input.is_action_just_pressed("defense"):
-		sprite.play("block")
+	velocity.x *= WALK_SPEED
 	
 	#sprite.play("idle")
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/indivimg/block/frame_1_delay-0.1s.png" type="Texture" id=2]
@@ -195,11 +195,34 @@ tracks/9/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath(".:frames")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 14 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../CollisionPolygon2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2, 6 ) ]
+}
 
 [sub_resource type="Animation" id=17]
 resource_name = "attack1"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
@@ -324,7 +347,6 @@ tracks/9/keys = {
 [sub_resource type="Animation" id=18]
 resource_name = "attack2"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
@@ -449,7 +471,6 @@ tracks/9/keys = {
 [sub_resource type="Animation" id=19]
 resource_name = "attack3"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
@@ -571,6 +592,155 @@ tracks/9/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="Animation" id=22]
+resource_name = "block"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 14 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../PlayerCollision:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ SubResource( 15 ), SubResource( 15 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../PlayerCollision:shape:extents")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 10, 17.35 ), Vector2( 10, 16.35 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../PlayerCollision:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2, -0.65 ), Vector2( -2, 0.35 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../PlayerCollision:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../CollisionPolygon2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../CollisionPolygon2D:build_mode")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../CollisionPolygon2D:polygon")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 4, -18, 27, 3, 27, 7, 18, 7, -1, -14 ), PoolVector2Array( 4, -18, 27, 3, 27, 7, 18, 7, -1, -14 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../CollisionPolygon2D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2, 6 ), Vector2( -2, 8 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath(".:animation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "block" ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath(".:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -4, -41 ) ]
+}
+
 [sub_resource type="Animation" id=20]
 resource_name = "idle"
 length = 0.2
@@ -670,6 +840,106 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "jump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3.8147e-06, -2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../CollisionPolygon2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../PlayerCollision:shape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ SubResource( 15 ), SubResource( 15 ), SubResource( 15 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../PlayerCollision:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 7.5, 18.35 ), Vector2( 7.5, 19 ), Vector2( 13, 18.5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../PlayerCollision:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -1.5, -1.65 ), Vector2( -1.5, -1 ), Vector2( 0, 1.5 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../PlayerCollision:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:animation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "jump" ]
 }
 
 [sub_resource type="Animation" id=21]
@@ -773,6 +1043,84 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "attack1"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "attack2"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "attack3"
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "block"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "jump"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+
+[sub_resource type="AnimationNodeStateMachine" id=45]
+states/attack1/node = SubResource( 24 )
+states/attack1/position = Vector2( 374, 426 )
+states/attack2/node = SubResource( 25 )
+states/attack2/position = Vector2( 169, 420 )
+states/attack3/node = SubResource( 26 )
+states/attack3/position = Vector2( 60, 358 )
+states/block/node = SubResource( 27 )
+states/block/position = Vector2( 633, 426 )
+states/idle/node = SubResource( 28 )
+states/idle/position = Vector2( 534, 140 )
+states/jump/node = SubResource( 29 )
+states/jump/position = Vector2( 953, 107 )
+states/run/node = SubResource( 30 )
+states/run/position = Vector2( 984, 358 )
+transitions = [ "idle", "attack1", SubResource( 31 ), "attack1", "attack2", SubResource( 32 ), "attack2", "attack3", SubResource( 33 ), "attack3", "idle", SubResource( 34 ), "attack2", "idle", SubResource( 35 ), "attack1", "idle", SubResource( 36 ), "idle", "run", SubResource( 37 ), "run", "idle", SubResource( 38 ), "idle", "jump", SubResource( 39 ), "run", "jump", SubResource( 40 ), "jump", "idle", SubResource( 41 ), "idle", "block", SubResource( 42 ), "run", "block", SubResource( 43 ), "block", "idle", SubResource( 44 ) ]
+start_node = "idle"
+graph_offset = Vector2( -96, 65 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=46]
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -787,7 +1135,9 @@ anims/RESET = SubResource( 16 )
 anims/attack1 = SubResource( 17 )
 anims/attack2 = SubResource( 18 )
 anims/attack3 = SubResource( 19 )
+anims/block = SubResource( 22 )
 anims/idle = SubResource( 20 )
+anims/jump = SubResource( 23 )
 anims/run = SubResource( 21 )
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
@@ -797,3 +1147,9 @@ shape = SubResource( 15 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( -2, 6 )
 polygon = PoolVector2Array( -3, -11, -27, -18, -27, -24, -13, -24, -2, -20 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 45 )
+anim_player = NodePath("../PlayerSprite/AnimationPlayer")
+active = true
+parameters/playback = SubResource( 46 )
