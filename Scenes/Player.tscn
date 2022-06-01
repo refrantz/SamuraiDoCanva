@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=2]
+[gd_scene load_steps=170 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/indivimg/block/frame_1_delay-0.1s.png" type="Texture" id=2]
@@ -1350,7 +1350,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Vector2( 0, -41 ), Vector2( 0, -41 ) ]
@@ -1362,7 +1362,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ SubResource( 15 ), SubResource( 15 ) ]
@@ -1374,7 +1374,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Vector2( -2, -2.3 ), Vector2( -2, -1.65 ) ]
@@ -1386,7 +1386,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
@@ -1398,7 +1398,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Vector2( 9.25, 19 ), Vector2( 9.25, 18.35 ) ]
@@ -1438,10 +1438,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 3.8147e-06, -2 ) ]
+"values": [ Vector2( 3.6, -5.4 ), Vector2( 3.6, -5.4 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("../CollisionPolygon2D:disabled")
@@ -1477,7 +1477,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 7.5, 18.35 ), Vector2( 7.5, 19 ), Vector2( 13, 18.5 ) ]
+"values": [ Vector2( 7.5, 18.35 ), Vector2( 7.5, 19 ), Vector2( 12.5, 18.5 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("../PlayerCollision:position")
@@ -1489,7 +1489,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( -1.5, -1.65 ), Vector2( -1.5, -1 ), Vector2( 0, 1.5 ) ]
+"values": [ Vector2( 2, -5 ), Vector2( 3.25, -4 ), Vector2( 3.5, -2 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("../PlayerCollision:scale")
@@ -1927,7 +1927,6 @@ tracks/10/keys = {
 [sub_resource type="Animation" id=30]
 resource_name = "jump_flip"
 length = 0.3
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
@@ -1950,7 +1949,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 3.8147e-06, -2 ) ]
+"values": [ Vector2( 3.6, -5.4 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:frame")
@@ -1971,10 +1970,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 15 ), SubResource( 15 ), SubResource( 15 ), SubResource( 15 ) ]
+"values": [ SubResource( 15 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("../PlayerCollision:shape:extents")
@@ -1983,10 +1982,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 13, 13 ), Vector2( 13, 13 ), Vector2( 13, 13 ), Vector2( 13, 13 ) ]
+"values": [ Vector2( 12.5, 12 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("../PlayerCollision:position")
@@ -1995,10 +1994,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -1, -5 ), Vector2( -1, -5 ), Vector2( -1, -5 ), Vector2( -1, -5 ) ]
+"values": [ Vector2( 1.5, -6 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("../PlayerCollision:scale")
@@ -2007,10 +2006,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("../CollisionPolygon2D:disabled")
@@ -2326,6 +2325,217 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "attack1"
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "attack2"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "attack3"
+
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "block"
+
+[sub_resource type="AnimationNodeAnimation" id=38]
+animation = "dash"
+
+[sub_resource type="AnimationNodeAnimation" id=39]
+animation = "death"
+
+[sub_resource type="AnimationNodeAnimation" id=40]
+animation = "end_run"
+
+[sub_resource type="AnimationNodeAnimation" id=41]
+animation = "heavy_attack"
+
+[sub_resource type="AnimationNodeAnimation" id=42]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=43]
+animation = "jump"
+
+[sub_resource type="AnimationNodeAnimation" id=44]
+animation = "jump_attack1"
+
+[sub_resource type="AnimationNodeAnimation" id=45]
+animation = "jump_attack2"
+
+[sub_resource type="AnimationNodeAnimation" id=46]
+animation = "jump_attack3"
+
+[sub_resource type="AnimationNodeAnimation" id=47]
+animation = "jump_flip"
+
+[sub_resource type="AnimationNodeAnimation" id=48]
+animation = "knockback"
+
+[sub_resource type="AnimationNodeAnimation" id=49]
+animation = "landing"
+
+[sub_resource type="AnimationNodeAnimation" id=50]
+animation = "run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=52]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=53]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=54]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=57]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=58]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=59]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=61]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=62]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=63]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=64]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=65]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=67]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=68]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=69]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=70]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=71]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=72]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=73]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=74]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=75]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=77]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=79]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=80]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=81]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=82]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=83]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=84]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=85]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=86]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=87]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=88]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=89]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=90]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=91]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=92]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=93]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=94]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=95]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=96]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=97]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=98]
+states/attack1/node = SubResource( 34 )
+states/attack1/position = Vector2( 1684, 174 )
+states/attack2/node = SubResource( 35 )
+states/attack2/position = Vector2( 1539, 286 )
+states/attack3/node = SubResource( 36 )
+states/attack3/position = Vector2( 1393, 375 )
+states/block/node = SubResource( 37 )
+states/block/position = Vector2( 801, -186 )
+states/dash/node = SubResource( 38 )
+states/dash/position = Vector2( 533, -145 )
+states/death/node = SubResource( 39 )
+states/death/position = Vector2( 1059, -414 )
+states/end_run/node = SubResource( 40 )
+states/end_run/position = Vector2( 1256, -186 )
+states/heavy_attack/node = SubResource( 41 )
+states/heavy_attack/position = Vector2( 1016, 243 )
+states/idle/node = SubResource( 42 )
+states/idle/position = Vector2( 1017, -19 )
+states/jump/node = SubResource( 43 )
+states/jump/position = Vector2( 457, -4 )
+states/jump_attack1/node = SubResource( 44 )
+states/jump_attack1/position = Vector2( 251, 212 )
+states/jump_attack2/node = SubResource( 45 )
+states/jump_attack2/position = Vector2( 509, 314 )
+states/jump_attack3/node = SubResource( 46 )
+states/jump_attack3/position = Vector2( 712, 383 )
+states/jump_flip/node = SubResource( 47 )
+states/jump_flip/position = Vector2( 566, 163 )
+states/knockback/node = SubResource( 48 )
+states/knockback/position = Vector2( 1200, -330 )
+states/landing/node = SubResource( 49 )
+states/landing/position = Vector2( 788, 139 )
+states/run/node = SubResource( 50 )
+states/run/position = Vector2( 1012, -186 )
+transitions = [ "idle", "jump", SubResource( 51 ), "jump", "jump_flip", SubResource( 52 ), "jump_flip", "landing", SubResource( 53 ), "jump", "landing", SubResource( 54 ), "landing", "idle", SubResource( 55 ), "idle", "run", SubResource( 56 ), "jump_flip", "jump", SubResource( 57 ), "attack1", "attack2", SubResource( 58 ), "attack2", "attack3", SubResource( 59 ), "idle", "attack1", SubResource( 60 ), "run", "end_run", SubResource( 61 ), "end_run", "idle", SubResource( 62 ), "attack3", "idle", SubResource( 63 ), "attack2", "idle", SubResource( 64 ), "attack1", "idle", SubResource( 65 ), "run", "jump", SubResource( 66 ), "run", "attack1", SubResource( 67 ), "idle", "block", SubResource( 68 ), "run", "block", SubResource( 69 ), "block", "idle", SubResource( 70 ), "idle", "dash", SubResource( 71 ), "jump", "dash", SubResource( 72 ), "dash", "idle", SubResource( 73 ), "dash", "jump_flip", SubResource( 74 ), "idle", "knockback", SubResource( 75 ), "attack3", "knockback", SubResource( 76 ), "attack2", "knockback", SubResource( 77 ), "attack1", "knockback", SubResource( 78 ), "end_run", "knockback", SubResource( 79 ), "run", "knockback", SubResource( 80 ), "jump", "knockback", SubResource( 81 ), "jump_flip", "knockback", SubResource( 82 ), "landing", "knockback", SubResource( 83 ), "knockback", "idle", SubResource( 84 ), "knockback", "death", SubResource( 85 ), "idle", "heavy_attack", SubResource( 86 ), "jump_attack1", "jump_attack2", SubResource( 87 ), "jump_attack2", "jump_attack3", SubResource( 88 ), "jump_attack3", "jump_flip", SubResource( 89 ), "jump_attack2", "jump_flip", SubResource( 90 ), "jump_attack1", "jump_flip", SubResource( 91 ), "jump", "jump_attack1", SubResource( 92 ), "jump_flip", "jump_attack1", SubResource( 93 ), "jump_attack1", "knockback", SubResource( 94 ), "jump_attack2", "knockback", SubResource( 95 ), "jump_attack3", "knockback", SubResource( 96 ), "heavy_attack", "idle", SubResource( 97 ) ]
+start_node = "idle"
+end_node = "death"
+graph_offset = Vector2( 118.311, -315 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=99]
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -2362,3 +2572,12 @@ shape = SubResource( 15 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( -2, 6 )
 polygon = PoolVector2Array( -3, -11, -27, -18, -27, -24, -13, -24, -2, -20 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 98 )
+anim_player = NodePath("../PlayerSprite/AnimationPlayer")
+active = true
+parameters/playback = SubResource( 99 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 5, 16 )
