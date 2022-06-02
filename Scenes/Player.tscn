@@ -2538,11 +2538,12 @@ states/run/position = Vector2( 1184, -159 )
 transitions = [ "idle", "jump", SubResource( 51 ), "jump", "jump_flip", SubResource( 52 ), "jump_flip", "landing", SubResource( 53 ), "jump", "landing", SubResource( 54 ), "landing", "idle", SubResource( 55 ), "idle", "run", SubResource( 56 ), "jump_flip", "jump", SubResource( 57 ), "attack1", "attack2", SubResource( 58 ), "attack2", "attack3", SubResource( 59 ), "idle", "attack1", SubResource( 60 ), "run", "end_run", SubResource( 61 ), "end_run", "idle", SubResource( 62 ), "attack3", "idle", SubResource( 63 ), "run", "jump", SubResource( 66 ), "idle", "block", SubResource( 68 ), "idle", "dash", SubResource( 71 ), "dash", "idle", SubResource( 73 ), "dash", "jump_flip", SubResource( 74 ), "idle", "knockback", SubResource( 75 ), "attack3", "knockback", SubResource( 76 ), "attack2", "knockback", SubResource( 77 ), "attack1", "knockback", SubResource( 78 ), "end_run", "knockback", SubResource( 79 ), "run", "knockback", SubResource( 80 ), "jump", "knockback", SubResource( 81 ), "jump_flip", "knockback", SubResource( 82 ), "landing", "knockback", SubResource( 83 ), "knockback", "idle", SubResource( 84 ), "knockback", "death", SubResource( 85 ), "idle", "heavy_attack", SubResource( 86 ), "jump_attack1", "jump_attack2", SubResource( 87 ), "jump_attack2", "jump_attack3", SubResource( 88 ), "jump_attack3", "jump_flip", SubResource( 89 ), "jump_attack2", "jump_flip", SubResource( 90 ), "jump_attack1", "jump_flip", SubResource( 91 ), "jump", "jump_attack1", SubResource( 92 ), "jump_flip", "jump_attack1", SubResource( 93 ), "jump_attack1", "knockback", SubResource( 94 ), "jump_attack2", "knockback", SubResource( 95 ), "jump_attack3", "knockback", SubResource( 96 ), "heavy_attack", "idle", SubResource( 97 ), "block", "idle", SubResource( 100 ), "run", "dash", SubResource( 101 ), "attack2", "idle", SubResource( 102 ), "attack1", "idle", SubResource( 103 ), "jump", "dash", SubResource( 104 ), "run", "landing", SubResource( 105 ) ]
 start_node = "idle"
 end_node = "death"
-graph_offset = Vector2( 329.311, -412.561 )
+graph_offset = Vector2( 247.311, -66.5614 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=99]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="PlayerBody" type="KinematicBody2D"]
+scale = Vector2( -1, 1 )
 script = ExtResource( 1 )
 
 [node name="PlayerSprite" type="AnimatedSprite" parent="."]

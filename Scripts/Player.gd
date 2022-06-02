@@ -8,6 +8,16 @@ var jumping = false
 var velocity = Vector2()
 onready var sprite := $PlayerSprite
 var state_machine
+var lastflip
+
+func flip_h(flip:bool):
+	var x_axis = global_transform.x
+	global_transform.x.x = (-1 if flip else 1) * abs(x_axis.x)
+	if flip:
+		lastflip = true
+		
+	else:
+		lastflip = false
 
 func _ready():
 	state_machine = $AnimationTree.get("parameters/playback")
@@ -15,7 +25,11 @@ func _ready():
 func get_input():
 	velocity.x = Input.get_action_strength("right")-Input.get_action_strength("left")
 	var jump = Input.is_action_just_pressed('up')
+
+	flip_h(velocity.x < 0 or lastflip)
 	
+	if(velocity.x > 0):
+		lastflip = false
 		
 	if(velocity.x == 0 and velocity.y == 0  and state_machine.get_current_node() != "attack1" and state_machine.get_current_node() != "attack2"):
 		state_machine.travel("idle")
@@ -41,11 +55,6 @@ func get_input():
 	
 	if(velocity.x != 0 and velocity.y == 0):
 		state_machine.travel("run")
-	
-	if(velocity.x > 0):
-		sprite.scale.x = 0.6
-	elif(velocity.x < 0):
-		sprite.scale.x = -0.6
 		
 	if(Input.is_action_just_pressed("dash")):
 		state_machine.travel("dash")
