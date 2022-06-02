@@ -9,6 +9,11 @@ var velocity = Vector2()
 onready var sprite := $PlayerSprite
 var state_machine
 var lastflip
+var dash_speedx = 1000
+var dash_speedy = 350
+var dash_duration = 0.2
+
+onready var dash = $dash
 
 func flip_h(flip:bool):
 	var x_axis = global_transform.x
@@ -56,17 +61,25 @@ func get_input():
 	if(velocity.x != 0 and velocity.y == 0):
 		state_machine.travel("run")
 		
-	if(Input.is_action_just_pressed("dash")):
+	if(Input.is_action_just_pressed("dash") and dash.can_dash and !dash.is_dashing()):
+		dash.start_dash(dash_duration)
 		state_machine.travel("dash")
 	
 	if(Input.is_action_pressed("block")):
 		state_machine.travel("block")
+		
+	if(dash.is_dashing()):
+		if(Input.is_action_pressed("down")):
+			velocity.y = dash_speedy
+		elif(Input.is_action_pressed("up")):
+			velocity.y = -dash_speedy
+		state_machine.travel("dash")
 	
 	if !is_on_floor() and Input.is_action_just_pressed('up'):
 		state_machine.travel("jump_flip")
 		velocity.y = JUMP_SPEED
 	
-	velocity.x *= WALK_SPEED
+	velocity.x *= dash_speedx if dash.is_dashing() else WALK_SPEED
 		
 	if jump and is_on_floor():
 		state_machine.travel("jump")
