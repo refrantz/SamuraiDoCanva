@@ -18,7 +18,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 30.5, 27 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" groups=["Enemies"]]
 
 [node name="TurretSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 16.75, 15.25 )

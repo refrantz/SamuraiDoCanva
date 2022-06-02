@@ -10,7 +10,5 @@ onready var sprite = $TurretSprite
 func _ready():
 	sprite.play("default") # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	pass#if $CollisionShape2D
