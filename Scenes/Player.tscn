@@ -91,11 +91,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 48 ), ExtResource( 46 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 39 ) ],
-"loop": true,
-"name": "jump_attack2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 65 ), ExtResource( 32 ), ExtResource( 42 ), ExtResource( 35 ) ],
 "loop": true,
 "name": "knockback",
@@ -131,11 +126,6 @@ animations = [ {
 "name": "land",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 80 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 83 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 74 ) ],
-"loop": true,
-"name": "death",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 45 ), ExtResource( 47 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 55 ), ExtResource( 62 ), ExtResource( 76 ), ExtResource( 72 ), ExtResource( 67 ), ExtResource( 73 ), ExtResource( 68 ), ExtResource( 69 ) ],
 "loop": true,
 "name": "heavy_attack",
@@ -149,11 +139,6 @@ animations = [ {
 "frames": [ ExtResource( 31 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 23 ) ],
 "loop": true,
 "name": "run",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "attack2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 29 ), ExtResource( 24 ) ],
@@ -170,10 +155,25 @@ animations = [ {
 "loop": true,
 "name": "attack1",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "attack2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 48 ), ExtResource( 46 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "jump_attack2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 80 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 83 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 74 ) ],
+"loop": true,
+"name": "death",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 9, 19.182 )
+extents = Vector2( 9.25, 18.35 )
 
 [sub_resource type="Animation" id=16]
 length = 0.001
@@ -2405,7 +2405,7 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=61]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=62]
-switch_mode = 2
+switch_mode = 1
 auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=63]
@@ -2531,7 +2531,7 @@ states/run/position = Vector2( 1012, -186 )
 transitions = [ "idle", "jump", SubResource( 51 ), "jump", "jump_flip", SubResource( 52 ), "jump_flip", "landing", SubResource( 53 ), "jump", "landing", SubResource( 54 ), "landing", "idle", SubResource( 55 ), "idle", "run", SubResource( 56 ), "jump_flip", "jump", SubResource( 57 ), "attack1", "attack2", SubResource( 58 ), "attack2", "attack3", SubResource( 59 ), "idle", "attack1", SubResource( 60 ), "run", "end_run", SubResource( 61 ), "end_run", "idle", SubResource( 62 ), "attack3", "idle", SubResource( 63 ), "attack2", "idle", SubResource( 64 ), "attack1", "idle", SubResource( 65 ), "run", "jump", SubResource( 66 ), "idle", "block", SubResource( 68 ), "idle", "dash", SubResource( 71 ), "jump", "dash", SubResource( 72 ), "dash", "idle", SubResource( 73 ), "dash", "jump_flip", SubResource( 74 ), "idle", "knockback", SubResource( 75 ), "attack3", "knockback", SubResource( 76 ), "attack2", "knockback", SubResource( 77 ), "attack1", "knockback", SubResource( 78 ), "end_run", "knockback", SubResource( 79 ), "run", "knockback", SubResource( 80 ), "jump", "knockback", SubResource( 81 ), "jump_flip", "knockback", SubResource( 82 ), "landing", "knockback", SubResource( 83 ), "knockback", "idle", SubResource( 84 ), "knockback", "death", SubResource( 85 ), "idle", "heavy_attack", SubResource( 86 ), "jump_attack1", "jump_attack2", SubResource( 87 ), "jump_attack2", "jump_attack3", SubResource( 88 ), "jump_attack3", "jump_flip", SubResource( 89 ), "jump_attack2", "jump_flip", SubResource( 90 ), "jump_attack1", "jump_flip", SubResource( 91 ), "jump", "jump_attack1", SubResource( 92 ), "jump_flip", "jump_attack1", SubResource( 93 ), "jump_attack1", "knockback", SubResource( 94 ), "jump_attack2", "knockback", SubResource( 95 ), "jump_attack3", "knockback", SubResource( 96 ), "heavy_attack", "idle", SubResource( 97 ), "block", "idle", SubResource( 100 ), "run", "dash", SubResource( 101 ) ]
 start_node = "idle"
 end_node = "death"
-graph_offset = Vector2( 191.311, -256 )
+graph_offset = Vector2( 189.311, -225 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=99]
 
@@ -2565,12 +2565,13 @@ anims/landing = SubResource( 26 )
 anims/run = SubResource( 21 )
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2( -2, -2.5 )
+position = Vector2( -2, -2.3 )
 shape = SubResource( 15 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( -2, 6 )
 polygon = PoolVector2Array( -3, -11, -27, -18, -27, -24, -13, -24, -2, -20 )
+disabled = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 98 )

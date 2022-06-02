@@ -155,5 +155,5 @@ current = true
 zoom = Vector2( 0.7, 0.7 )
 
 [node name="Turret" parent="." instance=ExtResource( 5 )]
-position = Vector2( 230, -26 )
+position = Vector2( 404, 168 )
 script = ExtResource( 6 )
