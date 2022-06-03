@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Node2D.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/background/level1/near-buildings-bg.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/background/level1/skyline-a.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/background/level1/buildings-bg.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=6]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 720, 420 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 360, 210 )
+region_filter_clip = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 720, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 240, 140 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 720, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+scale = Vector2( 2.4, 2.4 )
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 300, 175 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotation = 3.14159
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.7, 0.7 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 372, 193 )
+
+[node name="TileMap" parent="." instance=ExtResource( 6 )]
+cell_size = Vector2( 16, 16 )
+tile_data = PoolIntArray( 851977, 10, 0, 851978, 10, 0, 851979, 10, 0, 851980, 10, 0, 851981, 10, 0, 851982, 10, 0, 851983, 10, 0, 851984, 10, 0, 851985, 10, 0, 851986, 10, 0, 851987, 10, 0, 851988, 10, 0, 851989, 10, 0, 851990, 10, 0, 851991, 10, 0, 851992, 10, 0, 851993, 10, 0, 851994, 10, 0, 851995, 10, 0, 851996, 10, 0, 851997, 10, 0, 851998, 10, 0, 851999, 10, 0, 852000, 10, 0, 852001, 10, 0, 852002, 10, 0, 852003, 10, 0, 852004, 10, 0, 852005, 10, 0 )

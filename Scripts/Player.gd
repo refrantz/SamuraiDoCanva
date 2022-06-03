@@ -132,3 +132,8 @@ func _on_PlayerDetection_body_entered(body):
 		hit = true
 		hurt()
 		print("hurt")
+
+
+func _on_Weapon_body_entered(body):
+	if(body.is_in_group("Hittable")):
+		body.hit()
