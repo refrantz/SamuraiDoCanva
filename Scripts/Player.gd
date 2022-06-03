@@ -16,6 +16,11 @@ var health = 5
 var hit = false
 var dead = false
 var accumulated = 20
+var attacked1 = false
+var attacked2 = false
+var attacked3 = false
+var heavy_attacked = false
+var damage = 1
 
 onready var dash = $dash
 
@@ -40,6 +45,16 @@ func get_input():
 		
 	if(velocity.x == 0 and velocity.y == 0  and state_machine.get_current_node() != "attack1" and state_machine.get_current_node() != "attack2" and state_machine.get_current_node() != "idle"):
 		state_machine.travel("idle")
+		
+	if(state_machine.get_current_node() != "attack1"):
+		attacked1 = false
+	if(state_machine.get_current_node() != "attack2"):
+		attacked2 = false
+	if(state_machine.get_current_node() != "attack3"):
+		attacked3 = false
+	if(state_machine.get_current_node() != "heavy_attack"):
+		heavy_attacked = false
+	
 
 	flip_h(velocity.x < 0 or lastflip)
 	
@@ -128,12 +143,27 @@ func _physics_process(delta):
 
 
 func _on_PlayerDetection_body_entered(body):
-	if(state_machine.get_current_node() != "block" and !dash.is_dashing() and body.is_in_group("Enemies") and !hit and !dead):
+	if(state_machine.get_current_node() != "block" and !dash.is_dashing() and body.is_in_group("hurts") and !hit and !dead):
 		hit = true
 		hurt()
 		print("hurt")
 
 
 func _on_Weapon_body_entered(body):
-	if(body.is_in_group("Hittable")):
-		body.hit()
+	if(body.is_in_group("getshurt")):
+		if(state_machine.get_current_node() == "attack1" or state_machine.get_current_node() == "jump_attack1"):
+			if(!attacked1):
+				body.hit(damage)
+			attacked1 = true
+		if(state_machine.get_current_node() == "attack2" or state_machine.get_current_node() == "jump_attack2"):
+			if(!attacked2):
+				body.hit(damage)
+			attacked2 = true
+		if(state_machine.get_current_node() == "attack3" or state_machine.get_current_node() == "jump_attack3"):
+			if(!attacked3):
+				body.hit(damage)
+			attacked3 = true
+		if(state_machine.get_current_node() == "heavy_attack"):
+			if(!heavy_attacked):
+				body.hit(2*damage)
+			heavy_attacked = true

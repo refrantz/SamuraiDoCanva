@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Node2D.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sprites/background/level1/skyline-a.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/background/level1/buildings-bg.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/npcs/botWheel.tscn" type="PackedScene" id=7]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 2 )
@@ -46,6 +47,11 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 300, 175 )
 
+[node name="botWheel" parent="." instance=ExtResource( 7 )]
+position = Vector2( 458, 189 )
+rotation = 3.14159
+scale = Vector2( 1.5, -1.5 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 rotation = 3.14159
 anchor_mode = 0
@@ -53,7 +59,7 @@ current = true
 zoom = Vector2( 0.7, 0.7 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 372, 193 )
+position = Vector2( 157, 190 )
 
 [node name="TileMap" parent="." instance=ExtResource( 6 )]
 cell_size = Vector2( 16, 16 )
