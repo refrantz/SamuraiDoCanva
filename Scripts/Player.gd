@@ -171,12 +171,7 @@ func _on_Weapon_body_entered(body):
 
 
 func _on_PlayerDetection_area_entered(area):
-	
 	if(state_machine.get_current_node() != "block" and !dash.is_dashing() and area.is_in_group("hurts") and !hit and !dead):
 		hit = true
 		hurt()
 		print("hurt")
-	
-	if((state_machine.get_current_node() == "block" or dash.is_dashing()) and area.is_in_group("hurts")):
-		area.queue_free() 
-		print("entrou")
