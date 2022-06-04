@@ -98,7 +98,8 @@ func get_input():
 		state_machine.travel("jump_flip")
 		velocity.y = JUMP_SPEED
 	
-	velocity.x *= dash_speedx if dash.is_dashing() else WALK_SPEED
+	if(state_machine.get_current_node() != "block" and state_machine.get_current_node() != "attack1" and state_machine.get_current_node() != "attack2" and state_machine.get_current_node() != "attack3" and state_machine.get_current_node() != "jump_attack1" and state_machine.get_current_node() != "jump_attack2" and state_machine.get_current_node() != "jump_attack3" and state_machine.get_current_node() != "heavy_attack"):
+		velocity.x *= dash_speedx if dash.is_dashing() else WALK_SPEED
 		
 	if jump and is_on_floor():
 		state_machine.travel("jump")
