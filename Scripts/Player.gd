@@ -125,6 +125,7 @@ func _physics_process(delta):
 	if(!hit and !dead):
 		accumulated = 20
 		get_input()
+		
 	elif(hit and !dead):
 		velocity.x = 500 if lastflip else -500
 		velocity.x -= accumulated if lastflip else -accumulated
@@ -167,3 +168,15 @@ func _on_Weapon_body_entered(body):
 			if(!heavy_attacked):
 				body.hit(2*damage)
 			heavy_attacked = true
+
+
+func _on_PlayerDetection_area_entered(area):
+	
+	if(state_machine.get_current_node() != "block" and !dash.is_dashing() and area.is_in_group("hurts") and !hit and !dead):
+		hit = true
+		hurt()
+		print("hurt")
+	
+	if((state_machine.get_current_node() == "block" or dash.is_dashing()) and area.is_in_group("hurts")):
+		area.queue_free() 
+		print("entrou")

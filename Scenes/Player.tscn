@@ -2590,7 +2590,7 @@ states/run/node = SubResource( 50 )
 states/run/position = Vector2( 1328, -139 )
 transitions = [ "idle", "jump", SubResource( 51 ), "jump", "jump_flip", SubResource( 52 ), "jump_flip", "landing", SubResource( 53 ), "jump", "landing", SubResource( 54 ), "landing", "idle", SubResource( 55 ), "idle", "run", SubResource( 56 ), "jump_flip", "jump", SubResource( 57 ), "attack1", "attack2", SubResource( 58 ), "attack2", "attack3", SubResource( 59 ), "idle", "attack1", SubResource( 60 ), "run", "end_run", SubResource( 61 ), "end_run", "idle", SubResource( 62 ), "attack3", "idle", SubResource( 63 ), "run", "jump", SubResource( 66 ), "idle", "block", SubResource( 68 ), "idle", "dash", SubResource( 71 ), "dash", "idle", SubResource( 73 ), "dash", "jump_flip", SubResource( 74 ), "idle", "heavy_attack", SubResource( 86 ), "jump_attack1", "jump_attack2", SubResource( 87 ), "jump_attack2", "jump_attack3", SubResource( 88 ), "jump_attack3", "jump_flip", SubResource( 89 ), "jump_attack2", "jump_flip", SubResource( 90 ), "jump_attack1", "jump_flip", SubResource( 91 ), "jump", "jump_attack1", SubResource( 92 ), "jump_flip", "jump_attack1", SubResource( 93 ), "heavy_attack", "idle", SubResource( 97 ), "block", "idle", SubResource( 100 ), "run", "dash", SubResource( 101 ), "attack2", "idle", SubResource( 102 ), "attack1", "idle", SubResource( 103 ), "jump", "dash", SubResource( 104 ), "run", "landing", SubResource( 105 ), "jump_flip", "dash", SubResource( 106 ), "idle", "knockback", SubResource( 108 ), "end_run", "knockback", SubResource( 109 ), "knockback", "idle", SubResource( 110 ), "run", "knockback", SubResource( 112 ), "jump_flip", "knockback", SubResource( 113 ), "landing", "knockback", SubResource( 114 ), "jump", "knockback", SubResource( 115 ), "jump_attack3", "knockback", SubResource( 116 ), "jump_attack2", "knockback", SubResource( 117 ), "jump_attack1", "knockback", SubResource( 118 ), "attack3", "knockback", SubResource( 119 ), "attack2", "knockback", SubResource( 120 ), "attack1", "knockback", SubResource( 121 ), "block", "knockback", SubResource( 122 ), "dash", "knockback", SubResource( 123 ), "knockback", "death", SubResource( 125 ), "run", "attack1", SubResource( 126 ) ]
 start_node = "idle"
-graph_offset = Vector2( 272.311, -410.454 )
+graph_offset = Vector2( 347.311, -75.454 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=99]
 
@@ -2654,4 +2654,5 @@ position = Vector2( 5, 16 )
 
 [connection signal="animation_finished" from="PlayerSprite" to="." method="_on_PlayerSprite_animation_finished"]
 [connection signal="body_entered" from="Weapon" to="." method="_on_Weapon_body_entered"]
+[connection signal="area_entered" from="PlayerDetection" to="." method="_on_PlayerDetection_area_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_PlayerDetection_body_entered"]

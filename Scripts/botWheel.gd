@@ -6,6 +6,7 @@ onready var collision = $CollisionShape2D
 var inArea = false
 var dead = false
 var charged = false
+export(PackedScene) var BULLET: PackedScene = preload("res://Scenes/bullet.tscn")
 
 func _ready():
 	sprite.play("idle")
@@ -30,6 +31,7 @@ func _on_AnimatedSprite_animation_finished():
 				return
 			if(charged):
 				sprite.play("shoot")
+				shoot()
 				charged = false
 			
 		if(!inArea):
@@ -44,3 +46,8 @@ func _on_Area2D_body_exited(body):
 	if(body.is_in_group("player") and !dead):
 		inArea = false
 		sprite.play("wake", true)
+		
+func shoot():
+	var b = BULLET.instance()
+	owner.add_child(b)
+	b.transform = self.global_transform
