@@ -15,7 +15,7 @@ script = ExtResource( 2 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.1, 0.1 )
-motion_mirroring = Vector2( 720, 420 )
+motion_mirroring = Vector2( 254, 420 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 scale = Vector2( 2, 2 )
@@ -27,7 +27,7 @@ region_filter_clip = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.2, 0.2 )
-motion_mirroring = Vector2( 720, 0 )
+motion_mirroring = Vector2( 429, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 scale = Vector2( 3, 3 )
@@ -52,15 +52,15 @@ position = Vector2( 458, 189 )
 rotation = 3.14159
 scale = Vector2( 1.5, -1.5 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-rotation = 3.14159
-anchor_mode = 0
-current = true
-zoom = Vector2( 0.7, 0.7 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 157, 190 )
 
 [node name="TileMap" parent="." instance=ExtResource( 6 )]
 cell_size = Vector2( 16, 16 )
 tile_data = PoolIntArray( 851977, 10, 0, 851978, 10, 0, 851979, 10, 0, 851980, 10, 0, 851981, 10, 0, 851982, 10, 0, 851983, 10, 0, 851984, 10, 0, 851985, 10, 0, 851986, 10, 0, 851987, 10, 0, 851988, 10, 0, 851989, 10, 0, 851990, 10, 0, 851991, 10, 0, 851992, 10, 0, 851993, 10, 0, 851994, 10, 0, 851995, 10, 0, 851996, 10, 0, 851997, 10, 0, 851998, 10, 0, 851999, 10, 0, 852000, 10, 0, 852001, 10, 0, 852002, 10, 0, 852003, 10, 0, 852004, 10, 0, 852005, 10, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotation = 3.14159
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.7, 0.7 )
