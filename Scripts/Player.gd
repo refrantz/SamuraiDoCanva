@@ -21,6 +21,7 @@ var attacked2 = false
 var attacked3 = false
 var heavy_attacked = false
 var damage = 1
+var can_double = true
 
 onready var dash = $dash
 
@@ -39,6 +40,9 @@ func _ready():
 func get_input():
 	velocity.x = Input.get_action_strength("right")-Input.get_action_strength("left")
 	var jump = Input.is_action_just_pressed('up')
+	
+	if(is_on_floor()):
+		can_double = true
 	
 	if(velocity.x != 0 and velocity.y == 0 and state_machine.get_current_node() != "run"):
 		state_machine.travel("run")
@@ -98,8 +102,9 @@ func get_input():
 	if(state_machine.get_current_node() != "block" and state_machine.get_current_node() != "attack1" and state_machine.get_current_node() != "attack2" and state_machine.get_current_node() != "attack3" and state_machine.get_current_node() != "jump_attack1" and state_machine.get_current_node() != "jump_attack2" and state_machine.get_current_node() != "jump_attack3" and state_machine.get_current_node() != "heavy_attack"):
 		velocity.x *= dash_speedx if dash.is_dashing() else WALK_SPEED
 		
-		if !is_on_floor() and Input.is_action_just_pressed('up'):
+		if !is_on_floor() and Input.is_action_just_pressed('up') and can_double:
 			state_machine.travel("jump_flip")
+			can_double = false
 			velocity.y = JUMP_SPEED
 		
 		if jump and is_on_floor():
@@ -168,7 +173,7 @@ func _on_Weapon_body_entered(body):
 			attacked3 = true
 		if(state_machine.get_current_node() == "heavy_attack"):
 			if(!heavy_attacked):
-				body.hit(2*damage)
+				body.hit(3*damage)
 			heavy_attacked = true
 
 
@@ -176,4 +181,3 @@ func _on_PlayerDetection_area_entered(area):
 	if(state_machine.get_current_node() != "block" and !dash.is_dashing() and area.is_in_group("hurts") and !hit and !dead):
 		hit = true
 		hurt()
-		print("hurt")
