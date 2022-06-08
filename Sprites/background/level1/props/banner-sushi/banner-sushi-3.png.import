@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/skyline-a.png-13fbb0ed7f2262ac24ea9c270bf357c9.stex"
+path="res://.import/banner-sushi-3.png-90dc827a8bbca53b9748b5248afd8597.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/background/level1/skyline-a.png"
-dest_files=[ "res://.import/skyline-a.png-13fbb0ed7f2262ac24ea9c270bf357c9.stex" ]
+source_file="res://Sprites/background/level1/props/banner-sushi/banner-sushi-3.png"
+dest_files=[ "res://.import/banner-sushi-3.png-90dc827a8bbca53b9748b5248afd8597.stex" ]
 
 [params]
 

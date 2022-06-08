@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/foreground.png-3aea8a53fe4f0af2bf35d4299e4a53b6.stex"
+path="res://.import/banner-big-4.png-75f6d21b8db165f11978f3efb4c665ea.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/background/level2/foreground.png"
-dest_files=[ "res://.import/foreground.png-3aea8a53fe4f0af2bf35d4299e4a53b6.stex" ]
+source_file="res://Sprites/background/level1/props/banner-big/banner-big-4.png"
+dest_files=[ "res://.import/banner-big-4.png-75f6d21b8db165f11978f3efb4c665ea.stex" ]
 
 [params]
 

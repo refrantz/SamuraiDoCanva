@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/far-buildings.png-c79c5a216592b8b87c4b19efba540ce0.stex"
+path="res://.import/banner-neon-2.png-bb10591227081335bd791f6be1d478db.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/background/level2/far-buildings.png"
-dest_files=[ "res://.import/far-buildings.png-c79c5a216592b8b87c4b19efba540ce0.stex" ]
+source_file="res://Sprites/background/level1/props/banner-neon/banner-neon-2.png"
+dest_files=[ "res://.import/banner-neon-2.png-bb10591227081335bd791f6be1d478db.stex" ]
 
 [params]
 
