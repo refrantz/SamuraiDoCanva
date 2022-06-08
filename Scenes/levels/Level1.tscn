@@ -107,37 +107,36 @@ playing = true
 [node name="bannerScroll" type="AnimatedSprite" parent="."]
 position = Vector2( 71, -14 )
 frames = SubResource( 2 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="bannerScroll2" type="AnimatedSprite" parent="."]
 position = Vector2( 573, 351 )
 frames = SubResource( 2 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="bannerScroll3" type="AnimatedSprite" parent="."]
 position = Vector2( 367, 282 )
 frames = SubResource( 2 )
-frame = 2
 playing = true
 
 [node name="bannerBig" type="AnimatedSprite" parent="."]
 position = Vector2( 1068, 357 )
 frames = SubResource( 3 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="bannerBig2" type="AnimatedSprite" parent="."]
 position = Vector2( 1847, 468 )
 frames = SubResource( 3 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="bannerBig3" type="AnimatedSprite" parent="."]
 position = Vector2( 1961, 127 )
 frames = SubResource( 3 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="botWheel" parent="." instance=ExtResource( 18 )]
@@ -175,3 +174,6 @@ position = Vector2( 2122, 46 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 157, 190 )
+
+[node name="SceneLimit" type="Position2D" parent="."]
+position = Vector2( 267, 451 )
