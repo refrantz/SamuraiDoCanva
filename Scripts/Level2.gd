@@ -11,7 +11,7 @@ func _physics_process(_delta):
 	
 	if actor.position.y > sceneLimit.position.y:
 		get_tree().change_scene("res://Scenes/Menu.tscn")
-	if actor.position.y == winLimit.position.y and actor.position.x == winLimit.position.x:
-		print("Win")
-		get_tree().change_scene("res://Scenes/Menu.tscn")
+	#if actor.position.y == winLimit.position.y and actor.position.x == winLimit.position.x:
+	#	print("Win")
+	#	get_tree().change_scene("res://Scenes/Menu.tscn")
 	pass
