@@ -92,14 +92,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 81 ), ExtResource( 82 ), ExtResource( 75 ), ExtResource( 79 ) ],
-"loop": true,
-"name": "dash",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 80 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 83 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 74 ) ],
 "loop": true,
 "name": "death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 81 ), ExtResource( 82 ), ExtResource( 75 ), ExtResource( 79 ) ],
+"loop": true,
+"name": "dash",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 60 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 61 ), ExtResource( 53 ) ],
@@ -117,14 +117,14 @@ animations = [ {
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 33 ) ],
-"loop": true,
-"name": "land",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 65 ), ExtResource( 32 ), ExtResource( 42 ), ExtResource( 35 ) ],
 "loop": true,
 "name": "knockback",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ) ],
+"loop": true,
+"name": "land",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 64 ), ExtResource( 56 ), ExtResource( 59 ), ExtResource( 66 ), ExtResource( 36 ), ExtResource( 37 ) ],
@@ -137,21 +137,6 @@ animations = [ {
 "name": "attack3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "block",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 45 ), ExtResource( 47 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 55 ), ExtResource( 62 ), ExtResource( 76 ), ExtResource( 72 ), ExtResource( 67 ), ExtResource( 73 ), ExtResource( 68 ), ExtResource( 69 ) ],
-"loop": true,
-"name": "heavy_attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 63 ), ExtResource( 54 ), ExtResource( 40 ) ],
-"loop": true,
-"name": "jump_flip",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 48 ), ExtResource( 46 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 39 ) ],
 "loop": true,
 "name": "jump_attack2",
@@ -160,6 +145,16 @@ animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "attack2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "block",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 47 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 55 ), ExtResource( 62 ), ExtResource( 76 ), ExtResource( 72 ), ExtResource( 67 ), ExtResource( 73 ), ExtResource( 68 ), ExtResource( 69 ) ],
+"loop": true,
+"name": "heavy_attack",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 31 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 23 ) ],
@@ -171,10 +166,15 @@ animations = [ {
 "loop": true,
 "name": "end_run",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 63 ), ExtResource( 54 ), ExtResource( 40 ) ],
+"loop": true,
+"name": "jump_flip",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 9, 19.182 )
+extents = Vector2( 9.25, 19 )
 
 [sub_resource type="Animation" id=16]
 length = 0.001
@@ -2627,10 +2627,11 @@ anims/run = SubResource( 21 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Weapon"]
 position = Vector2( -2, 6 )
 polygon = PoolVector2Array( -3, -11, -27, -18, -27, -24, -13, -24, -2, -20 )
+disabled = true
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( -2, -2.5 )
+position = Vector2( -2, -2.3 )
 shape = SubResource( 15 )
 
 [node name="PlayerDetection" type="Area2D" parent="." groups=["player"]]
