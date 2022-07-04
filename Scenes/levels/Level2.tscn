@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/background/level2/parallax/foreground.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/background/level2/parallax/back-buildings.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/TileMap2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Ronin.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 721, 10 )
@@ -67,3 +68,6 @@ position = Vector2( 721, 417 )
 shape = SubResource( 1 )
 
 [node name="TileMap" parent="." instance=ExtResource( 4 )]
+tile_data = PoolIntArray( 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 327704, 0, 0, 327706, 0, 0, 327707, 0, 0, 327708, 0, 0 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 7 )]
