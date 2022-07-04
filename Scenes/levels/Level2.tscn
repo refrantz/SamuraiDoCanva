@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sprites/background/level1/parallax/near-buildings-bg.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/background/level1/parallax/buildings-bg.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/background/level1/parallax/skyline-a.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/background/level2/parallax/foreground.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/background/level2/parallax/back-buildings.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/background/level2/parallax/far-buildings.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/npcs/botWheel.tscn" type="PackedScene" id=7]
@@ -19,7 +18,7 @@ motion_mirroring = Vector2( 254, 420 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 360, 210 )
@@ -31,7 +30,7 @@ motion_mirroring = Vector2( 429, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 240, 140 )
@@ -42,14 +41,10 @@ motion_mirroring = Vector2( 720, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
 scale = Vector2( 2.4, 2.4 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 300, 175 )
-
-[node name="TileMap" parent="." instance=ExtResource( 1 )]
-cell_size = Vector2( 16, 16 )
-tile_data = PoolIntArray( 655379, 25, 0, 655380, 23, 0, 655381, 23, 0, 655382, 23, 0, 655383, 23, 0, 655384, 23, 0, 655385, 23, 0, 655386, 23, 0, 655387, 23, 0, 655388, 23, 0, 655389, 24, 0, 720916, 5, 0, 720918, 3, 0, 720919, 7, 0, 720922, 3, 0, 720923, 8, 0, 851970, 25, 0, 851971, 23, 0, 851972, 23, 0, 851973, 23, 0, 851974, 23, 0, 851975, 23, 0, 851976, 23, 0, 851977, 23, 0, 851978, 23, 0, 851979, 23, 0, 851980, 23, 0, 851981, 23, 0, 851982, 24, 0, 917508, 5, 0, 917510, 12, 0, 917511, 7, 0, 917514, 12, 0, 917515, 8, 0, 917526, 3, 0, 917530, 3, 0, 983060, 5, 0, 983063, 7, 0, 983067, 8, 0, 1114118, 26, 0, 1114122, 26, 0, 1114134, 3, 0, 1114138, 3, 0, 1179652, 5, 0, 1179654, 12, 0, 1179655, 7, 0, 1179658, 12, 0, 1179659, 8, 0, 1245204, 5, 0, 1245207, 7, 0, 1245211, 8, 0, 1310742, 3, 0, 1310743, 21, 0, 1310746, 3, 0, 1376262, 26, 0, 1376266, 26, 0, 1441796, 5, 0, 1441798, 12, 0, 1441799, 7, 0, 1441802, 12, 0, 1441803, 8, 0, 1441815, 21, 0, 1507348, 5, 0, 1507350, 3, 0, 1507351, 7, 0, 1507354, 3, 0, 1507355, 8, 0, 1572887, 21, 0, 1638406, 26, 0, 1638410, 26, 0, 2424837, 26, 0, 2424842, 26, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 rotation = 3.14159
