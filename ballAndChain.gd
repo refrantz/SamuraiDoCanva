@@ -8,11 +8,23 @@ var inArea = false
 var dead = false
 var charged = false
 var aggro = false
+var vel = 50
+var velocity = 0
+var lastflip = true
+
+func _physics_process(delta):
+	position.x += delta*velocity
+	flip_h(velocity < 0 or lastflip)
+		
+	if(velocity > 0):
+		lastflip = false
 
 func _ready():
+	velocity = 0
 	sprite.play("idle")
 
 func hit(damage):
+	velocity = 0
 	sprite.play("hurt")
 	health -= damage
 	charged = false
@@ -25,11 +37,13 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if(health <= 0 and !dead):
 		dead = true
 		sprite.play("death")
+		velocity = 0
 		
 	if(!dead):
 		if(inArea):
 			if(!charged):
 				sprite.play("charge")
+				velocity=0
 				charged = true
 				return
 			if(charged and aggro):
@@ -37,16 +51,19 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 				charged = false
 			
 		if(!inArea):
-			sprite.play("idle")
+			sprite.play("run")
+			velocity = -50
 
 func _on_Area2DVision_body_entered(body):
 	if(body.is_in_group("player") and !dead):
 		sprite.play("transition")
+		velocity = 0
 		inArea = true
 		
 func _on_Area2DVision_body_exited(body):
 	if(body.is_in_group("player") and !dead):
 		sprite.play("transition", true)
+		velocity = 0
 		charged = false
 		inArea = false
 
@@ -55,8 +72,18 @@ func _on_Area2DRange_body_entered(body):
 		sprite.play("attack")
 		charged = false
 		aggro = true
-		print("agroo")
 
 func _on_Area2DRange_body_exited(body):
 	if(body.is_in_group("player") and !dead):
 		aggro = false
+
+func _on_Area2DVision2_body_exited(body):
+	velocity = -velocity
+	
+func flip_h(flip:bool):
+	var x_axis = global_transform.x
+	global_transform.x.x = (-1 if flip else 1) * abs(x_axis.x)
+	if flip:
+		lastflip = true
+	else:
+		lastflip = false

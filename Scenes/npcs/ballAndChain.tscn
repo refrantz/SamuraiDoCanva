@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Sprites/enemies/Ball and Chain Bot/death.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/enemies/Ball and Chain Bot/idle.png" type="Texture" id=2]
@@ -496,6 +496,59 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="Animation" id=47]
+resource_name = "run"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 35 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "run" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Area2DWeapon/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
 [sub_resource type="Animation" id=44]
 resource_name = "transition"
 length = 0.2
@@ -559,6 +612,10 @@ extents = Vector2( 23, 8.33333 )
 resource_local_to_scene = true
 extents = Vector2( 58, 8.33333 )
 
+[sub_resource type="RectangleShape2D" id=46]
+resource_local_to_scene = true
+extents = Vector2( 2.25, 1.16667 )
+
 [node name="ballAndChain" type="KinematicBody2D" groups=["getshurt"]]
 script = ExtResource( 8 )
 
@@ -575,6 +632,7 @@ anims/charge = SubResource( 43 )
 anims/death = SubResource( 42 )
 anims/hurt = SubResource( 41 )
 anims/idle = SubResource( 40 )
+anims/run = SubResource( 47 )
 anims/transition = SubResource( 44 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -582,25 +640,35 @@ position = Vector2( 2, 0.5 )
 shape = SubResource( 36 )
 
 [node name="Area2DWeapon" type="Area2D" parent="." groups=["hurts"]]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DWeapon"]
 position = Vector2( 33, 6 )
 shape = SubResource( 37 )
 
 [node name="Area2DRange" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DRange"]
 position = Vector2( 33, 6 )
 shape = SubResource( 37 )
 
 [node name="Area2DVision" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DVision"]
 position = Vector2( 72, 4 )
 shape = SubResource( 45 )
+
+[node name="Area2DVision2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DVision2"]
+position = Vector2( 12, 16 )
+shape = SubResource( 46 )
 
 [connection signal="animation_finished" from="AnimatedSprite/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Area2DRange" to="." method="_on_Area2DRange_body_entered"]
 [connection signal="body_exited" from="Area2DRange" to="." method="_on_Area2DRange_body_exited"]
 [connection signal="body_entered" from="Area2DVision" to="." method="_on_Area2DVision_body_entered"]
 [connection signal="body_exited" from="Area2DVision" to="." method="_on_Area2DVision_body_exited"]
+[connection signal="body_exited" from="Area2DVision2" to="." method="_on_Area2DVision2_body_exited"]
