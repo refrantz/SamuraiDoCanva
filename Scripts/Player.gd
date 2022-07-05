@@ -12,7 +12,8 @@ var lastflip = false
 var dash_speedx = 1000
 var dash_speedy = 350
 var dash_duration = 0.2
-var health = 50
+var max_health = 5
+var health = max_health
 var hit = false
 var dead = false
 var accumulated = 20
@@ -36,6 +37,8 @@ func flip_h(flip:bool):
 
 func _ready():
 	state_machine = $AnimationTree.get("parameters/playback")
+	health = max_health
+	$HpBar.set_percent_value_int(health)
 
 func get_input():
 	velocity.x = Input.get_action_strength("right")-Input.get_action_strength("left")
@@ -115,6 +118,7 @@ func get_input():
 func hurt():
 	state_machine.travel("knockback")
 	health -= 1
+	$HpBar.set_percent_value_int(health)
 	if(health < 1):
 		death()
 		

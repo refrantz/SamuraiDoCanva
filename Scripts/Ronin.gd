@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
-var health = 50
 onready var player
 onready var animsprite = $AnimatedSprite
 onready var sprite = $AnimatedSprite/AnimationPlayer
 onready var collision = $CollisionShape2D
+var max_health = 10
+var health = max_health
 var inArea = false
 var dead = false
 var aggro = false
@@ -23,6 +24,8 @@ func _physics_process(delta):
 func _ready():
 	velocity = 0
 	sprite.play("idle")
+	health = max_health
+	$HpBar.set_percent_value_int(health)
 
 func hit(damage):
 	if(!sprite.current_animation == "attack"):
@@ -40,6 +43,7 @@ func hit(damage):
 		velocity = 0
 		sprite.play("hurt")
 		health -= damage
+		$HpBar.set_percent_value_int(health)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(dead):
