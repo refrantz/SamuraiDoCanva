@@ -8,6 +8,7 @@ var inArea = false
 var dead = false
 var charged = false
 var aggro = false
+var initVel = -50
 var velocity = 0
 var lastflip = true
 
@@ -51,7 +52,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			
 		if(!inArea):
 			sprite.play("run")
-			velocity = -50
+			velocity = initVel
 
 func _on_Area2DVision_body_entered(body):
 	if(body.is_in_group("player") and !dead):
@@ -73,7 +74,8 @@ func _on_Area2DRange_body_exited(body):
 		aggro = false
 
 func _on_Area2DVision2_body_exited(body):
-	velocity = -velocity
+	initVel = -initVel
+	velocity = initVel
 	
 func flip_h(flip:bool):
 	var x_axis = global_transform.x
