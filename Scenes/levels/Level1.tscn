@@ -98,7 +98,7 @@ zoom = Vector2( 0.7, 0.7 )
 [node name="bannerWin" type="AnimatedSprite" parent="."]
 position = Vector2( 2115, -518 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="WinArea" type="Area2D" parent="bannerWin"]
@@ -109,48 +109,49 @@ shape = SubResource( 4 )
 [node name="bannerSushi" type="AnimatedSprite" parent="."]
 position = Vector2( 236, -15 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="bannerSushi2" type="AnimatedSprite" parent="."]
 position = Vector2( 119, 329 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="bannerScroll" type="AnimatedSprite" parent="."]
 position = Vector2( 71, -14 )
 frames = SubResource( 2 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="bannerScroll2" type="AnimatedSprite" parent="."]
 position = Vector2( 573, 351 )
 frames = SubResource( 2 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="bannerScroll3" type="AnimatedSprite" parent="."]
 position = Vector2( 367, 282 )
 frames = SubResource( 2 )
+frame = 2
 playing = true
 
 [node name="bannerBig" type="AnimatedSprite" parent="."]
 position = Vector2( 1068, 357 )
 frames = SubResource( 3 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="bannerBig2" type="AnimatedSprite" parent="."]
 position = Vector2( 1847, 468 )
 frames = SubResource( 3 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="bannerBig3" type="AnimatedSprite" parent="."]
 position = Vector2( 1961, 127 )
 frames = SubResource( 3 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="botWheel" parent="." instance=ExtResource( 18 )]

@@ -46,8 +46,7 @@ func hit(damage):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(dead):
-		self.remove_child(animsprite)
-		self.remove_child(collision)
+		get_tree().change_scene("res://Scenes/Menu.tscn")
 	
 	if(health <= 0 and !dead):
 		dead = true
