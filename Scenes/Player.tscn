@@ -1,4 +1,4 @@
-[gd_scene load_steps=175 format=2]
+[gd_scene load_steps=178 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/indivimg/block/frame_1_delay-0.1s.png" type="Texture" id=2]
@@ -84,6 +84,9 @@
 [ext_resource path="res://Sprites/Player/indivimg/dash/frame_1_delay-0.1s.png" type="Texture" id=82]
 [ext_resource path="res://Sprites/Player/indivimg/death/frame_3_delay-0.1s.png" type="Texture" id=83]
 [ext_resource path="res://Scenes/dash.tscn" type="PackedScene" id=84]
+[ext_resource path="res://Scenes/HpBar.gd" type="Script" id=85]
+[ext_resource path="res://Sprites/ui/lifebar_fill.png" type="Texture" id=86]
+[ext_resource path="res://Sprites/ui/lifebar_bg.png" type="Texture" id=87]
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
@@ -92,39 +95,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 80 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 83 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 74 ) ],
-"loop": true,
-"name": "death",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 81 ), ExtResource( 82 ), ExtResource( 75 ), ExtResource( 79 ) ],
 "loop": true,
 "name": "dash",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 60 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 61 ), ExtResource( 53 ) ],
+"frames": [ ExtResource( 80 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 83 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 74 ) ],
 "loop": true,
-"name": "jump_attack3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "attack1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 29 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 65 ), ExtResource( 32 ), ExtResource( 42 ), ExtResource( 35 ) ],
-"loop": true,
-"name": "knockback",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ) ],
-"loop": true,
-"name": "land",
+"name": "death",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 64 ), ExtResource( 56 ), ExtResource( 59 ), ExtResource( 66 ), ExtResource( 36 ), ExtResource( 37 ) ],
@@ -132,19 +110,14 @@ animations = [ {
 "name": "jump_attack1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 30 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 31 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 23 ) ],
 "loop": true,
-"name": "attack3",
+"name": "run",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 48 ), ExtResource( 46 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 39 ) ],
 "loop": true,
 "name": "jump_attack2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "attack2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 2 ) ],
@@ -157,9 +130,39 @@ animations = [ {
 "name": "heavy_attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 31 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "run",
+"name": "attack1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 29 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 60 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 61 ), ExtResource( 53 ) ],
+"loop": true,
+"name": "jump_attack3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 30 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "attack3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ) ],
+"loop": true,
+"name": "land",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 65 ), ExtResource( 32 ), ExtResource( 42 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "knockback",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "attack2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 44 ), ExtResource( 34 ), ExtResource( 58 ), ExtResource( 57 ) ],
@@ -174,7 +177,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 9.25, 19 )
+extents = Vector2( 9, 19.182 )
 
 [sub_resource type="Animation" id=16]
 length = 0.001
@@ -2627,11 +2630,10 @@ anims/run = SubResource( 21 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Weapon"]
 position = Vector2( -2, 6 )
 polygon = PoolVector2Array( -3, -11, -27, -18, -27, -24, -13, -24, -2, -20 )
-disabled = true
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( -2, -2.3 )
+position = Vector2( -2, -2.5 )
 shape = SubResource( 15 )
 
 [node name="PlayerDetection" type="Area2D" parent="." groups=["player"]]
@@ -2651,6 +2653,22 @@ parameters/playback = SubResource( 99 )
 position = Vector2( 5, 16 )
 
 [node name="dash" parent="." instance=ExtResource( 84 )]
+
+[node name="HpBar" type="TextureRect" parent="."]
+margin_left = -16.0
+margin_top = -42.0
+margin_right = 16.0
+margin_bottom = -10.0
+texture = ExtResource( 87 )
+script = ExtResource( 85 )
+
+[node name="TextureProgress" type="TextureProgress" parent="HpBar"]
+margin_left = 8.0
+margin_right = 24.0
+margin_bottom = 32.0
+max_value = 5.0
+value = 5.0
+texture_progress = ExtResource( 86 )
 
 [connection signal="animation_finished" from="PlayerSprite" to="." method="_on_PlayerSprite_animation_finished"]
 [connection signal="body_entered" from="Weapon" to="." method="_on_Weapon_body_entered"]
