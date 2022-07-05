@@ -8,7 +8,6 @@ var inArea = false
 var dead = false
 var charged = false
 var aggro = false
-var vel = 50
 var velocity = 0
 var lastflip = true
 
@@ -20,8 +19,8 @@ func _physics_process(delta):
 		lastflip = false
 
 func _ready():
-	velocity = 0
 	sprite.play("idle")
+	velocity = 0
 
 func hit(damage):
 	velocity = 0
@@ -41,7 +40,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		
 	if(!dead):
 		if(inArea):
-			if(!charged):
+			if(!charged or !aggro):
 				sprite.play("charge")
 				velocity=0
 				charged = true
@@ -62,15 +61,11 @@ func _on_Area2DVision_body_entered(body):
 		
 func _on_Area2DVision_body_exited(body):
 	if(body.is_in_group("player") and !dead):
-		sprite.play("transition", true)
-		velocity = 0
 		charged = false
 		inArea = false
 
 func _on_Area2DRange_body_entered(body):
 	if(body.is_in_group("player") and !dead):
-		sprite.play("attack")
-		charged = false
 		aggro = true
 
 func _on_Area2DRange_body_exited(body):

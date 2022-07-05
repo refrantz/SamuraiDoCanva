@@ -289,7 +289,6 @@ tracks/3/keys = {
 [sub_resource type="Animation" id=43]
 resource_name = "charge"
 length = 0.4
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -546,7 +545,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=44]
@@ -640,21 +639,18 @@ position = Vector2( 2, 0.5 )
 shape = SubResource( 36 )
 
 [node name="Area2DWeapon" type="Area2D" parent="." groups=["hurts"]]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DWeapon"]
 position = Vector2( 33, 6 )
 shape = SubResource( 37 )
 
 [node name="Area2DRange" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DRange"]
 position = Vector2( 33, 6 )
 shape = SubResource( 37 )
 
 [node name="Area2DVision" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DVision"]
 position = Vector2( 72, 4 )
