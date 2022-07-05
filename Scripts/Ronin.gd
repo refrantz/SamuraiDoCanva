@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-var health = 3
+var health = 50
+onready var player
 onready var animsprite = $AnimatedSprite
 onready var sprite = $AnimatedSprite/AnimationPlayer
 onready var collision = $CollisionShape2D
@@ -8,8 +9,9 @@ var inArea = false
 var dead = false
 var aggro = false
 var velocity = 0
-var lastflip = true
-var initVel = -50
+var lastflip = false
+var initVel = +50
+var rng = RandomNumberGenerator.new()
 
 func _physics_process(delta):
 	position.x += delta*velocity
@@ -23,9 +25,21 @@ func _ready():
 	sprite.play("idle")
 
 func hit(damage):
-	velocity = 0
-	sprite.play("hurt")
-	health -= damage
+	if(!sprite.current_animation == "attack"):
+		velocity = 0
+		sprite.play("dash")
+		if(player.lastflip):
+			velocity = -50
+			initVel = velocity
+			self.position.x = player.position.x + 50
+		else:
+			velocity = 50
+			initVel = velocity
+			self.position.x = player.position.x - 50
+	else:
+		velocity = 0
+		sprite.play("hurt")
+		health -= damage
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(dead):
@@ -37,16 +51,16 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		sprite.play("death")
 		velocity = 0
 	if(!dead):
-		if(inArea):
-			if(aggro):
-				sprite.play("attack")
-		if(!inArea):
+		if(aggro):
+			velocity = 0
+			sprite.play("attack")
+		else:
 			sprite.play("run")
 			velocity = initVel
 
 func _on_Area2DVision_body_entered(body):
+	player = body
 	if(body.is_in_group("player") and !dead):
-		velocity = 0
 		inArea = true
 		
 func _on_Area2DVision_body_exited(body):
@@ -64,9 +78,10 @@ func _on_Area2DRange_body_exited(body):
 		aggro = false
 
 func _on_Area2DVision2_body_exited(body):
-	initVel = -initVel
-	velocity = initVel
-	
+	if(body.is_in_group("floor") and sprite.current_animation == "run"):
+		initVel = -initVel
+		velocity = initVel
+		
 	
 func flip_h(flip:bool):
 	var x_axis = global_transform.x

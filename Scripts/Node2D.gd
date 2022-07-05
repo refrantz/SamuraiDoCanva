@@ -3,7 +3,7 @@ extends Node2D
 onready var cam = $Camera2D
 onready var actor = $Player
 onready var sceneLimit = $SceneLimit
-onready var winLimit = $bannerWin/WinArea/WinLimit
+onready var winLimit = $bannerWin/WinArea
 
 func _physics_process(_delta):
 	cam.position.x = actor.position.x-365
@@ -11,7 +11,9 @@ func _physics_process(_delta):
 	
 	if actor.position.y > sceneLimit.position.y:
 		get_tree().change_scene("res://Scenes/Menu.tscn")
-	if actor.position.y == winLimit.position.y and actor.position.x == winLimit.position.x:
-		print("Win")
-		get_tree().change_scene("res://Scenes/Menu.tscn")
 	pass
+
+
+func _on_WinArea_body_entered(body):
+	print("Win")
+	get_tree().change_scene("res://Scenes/levels/Level2.tscn") # Replace with function body.

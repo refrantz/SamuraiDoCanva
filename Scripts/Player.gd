@@ -8,11 +8,11 @@ var jumping = false
 var velocity = Vector2()
 onready var sprite := $PlayerSprite
 var state_machine
-var lastflip
+var lastflip = false
 var dash_speedx = 1000
 var dash_speedy = 350
 var dash_duration = 0.2
-var health = 5
+var health = 50
 var hit = false
 var dead = false
 var accumulated = 20
