@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/background/level2/parallax/foreground.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/background/level2/parallax/back-buildings.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/TileMap2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/npcs/Ronin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/npcs/ballAndChain.tscn" type="PackedScene" id=8]
 
 [node name="Level2" type="Node2D"]
@@ -54,13 +55,17 @@ current = true
 zoom = Vector2( 0.7, 0.7 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 52, 187 )
+position = Vector2( 334, 338 )
 scale = Vector2( 1.5, 1.5 )
 
-[node name="TileMap" parent="." instance=ExtResource( 4 )]
+[node name="TileMap" parent="." groups=["floor"] instance=ExtResource( 4 )]
 cell_size = Vector2( 32, 32 )
-tile_data = PoolIntArray( 458760, 0, 0, 458765, 0, 0, 524288, 0, 0, 524307, 3, 0, 524310, 0, 0 )
+tile_data = PoolIntArray( 524286, 1, 0, 458762, 1, 0, 458764, 1, 0, 458766, 1, 0, 589822, 1, 0, 655358, 1, 0, 720894, 1, 0, 786430, 1, 0, 851966, 1, 0, 786432, 0, 0, 786437, 0, 0, 786442, 0, 0, 786447, 0, 0, 786452, 0, 0, 786457, 0, 0, 786462, 0, 0, 786467, 0, 0, 786472, 0, 0, 786477, 0, 0 )
 
 [node name="ballAndChain" parent="." instance=ExtResource( 8 )]
-position = Vector2( 768, 233 )
+position = Vector2( 344, 212 )
 scale = Vector2( 2, 2 )
+
+[node name="Ronin" parent="." instance=ExtResource( 7 )]
+position = Vector2( 38, 369 )
+scale = Vector2( 1.5, 1.5 )
