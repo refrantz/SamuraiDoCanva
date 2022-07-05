@@ -60,12 +60,20 @@ scale = Vector2( 1.5, 1.5 )
 
 [node name="TileMap" parent="." groups=["floor"] instance=ExtResource( 4 )]
 cell_size = Vector2( 32, 32 )
-tile_data = PoolIntArray( 524286, 1, 0, 458762, 1, 0, 458764, 1, 0, 458766, 1, 0, 589822, 1, 0, 655358, 1, 0, 720894, 1, 0, 786430, 1, 0, 851966, 1, 0, 786432, 0, 0, 786437, 0, 0, 786442, 0, 0, 786447, 0, 0, 786452, 0, 0, 786457, 0, 0, 786462, 0, 0, 786467, 0, 0, 786472, 0, 0, 786477, 0, 0 )
+tile_data = PoolIntArray( -327612, 2, 0, -327610, 2, 0, -196545, 2, 0, -196543, 2, 0, -65478, 2, 0, -65476, 2, 0, 65579, 2, 0, 65581, 2, 0, 65583, 2, 0, 65585, 2, 0, 65587, 2, 0, 65589, 2, 0, 65591, 2, 0, 327706, 2, 0, 327708, 2, 0, 327710, 2, 0, 327712, 2, 0, 327714, 2, 0, 327716, 2, 0, 327718, 2, 0, 327720, 2, 0, 458762, 2, 0, 458764, 2, 0, 458766, 2, 0, 458768, 2, 0, 458770, 2, 0, 524310, 3, 0, 720896, 0, 0, 720901, 0, 0, 720906, 0, 0, 720911, 0, 0, 720916, 0, 0, 720921, 0, 0, 720926, 0, 0, 720931, 0, 0, 720936, 0, 0, 720941, 0, 0, 720946, 0, 0, 720951, 0, 0, 720956, 0, 0, 720961, 0, 0, 720966, 0, 0, 720971, 0, 0, 720976, 0, 0 )
 
 [node name="ballAndChain" parent="." instance=ExtResource( 8 )]
-position = Vector2( 344, 212 )
+position = Vector2( 351, 206 )
 scale = Vector2( 2, 2 )
 
 [node name="Ronin" parent="." instance=ExtResource( 7 )]
-position = Vector2( 38, 369 )
+position = Vector2( 35, 586 )
 scale = Vector2( 1.5, 1.5 )
+
+[node name="ballAndChain2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 858, 144 )
+scale = Vector2( 2, 2 )
+
+[node name="ballAndChain3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1139, 144 )
+scale = Vector2( 2, 2 )
