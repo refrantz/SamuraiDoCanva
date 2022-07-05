@@ -98,7 +98,7 @@ zoom = Vector2( 0.7, 0.7 )
 [node name="bannerWin" type="AnimatedSprite" parent="."]
 position = Vector2( 2115, -518 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="WinArea" type="Area2D" parent="bannerWin"]
@@ -109,13 +109,13 @@ shape = SubResource( 4 )
 [node name="bannerSushi" type="AnimatedSprite" parent="."]
 position = Vector2( 236, -15 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="bannerSushi2" type="AnimatedSprite" parent="."]
 position = Vector2( 119, 329 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="bannerScroll" type="AnimatedSprite" parent="."]

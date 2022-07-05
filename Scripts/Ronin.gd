@@ -11,8 +11,7 @@ var dead = false
 var aggro = false
 var velocity = 0
 var lastflip = false
-var initVel = +50
-var rng = RandomNumberGenerator.new()
+var initVel = -50
 
 func _physics_process(delta):
 	position.x += delta*velocity

@@ -4,6 +4,7 @@ const GRAVITY = 1600.0
 const JUMP_SPEED = -550
 const WALK_SPEED = 400
 
+onready var timer = $Timer
 var jumping = false
 var velocity = Vector2()
 onready var sprite := $PlayerSprite
@@ -126,10 +127,11 @@ func death():
 	velocity.x = 0
 	dead = true
 	state_machine.travel("death")
+	timer.wait_time = 3
+	timer.start()
 	
 
 func _physics_process(delta):
-	
 	if(state_machine.get_current_node() == "knockback"):
 		hit = true
 	
@@ -185,3 +187,6 @@ func _on_PlayerDetection_area_entered(area):
 	if(state_machine.get_current_node() != "block" and !dash.is_dashing() and area.is_in_group("hurts") and !hit and !dead):
 		hit = true
 		hurt()
+		
+func _on_Timer_timeout():
+	get_tree().change_scene("res://Scenes/Menu.tscn")

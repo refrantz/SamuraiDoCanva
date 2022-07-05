@@ -67,7 +67,7 @@ position = Vector2( 351, 206 )
 scale = Vector2( 2, 2 )
 
 [node name="Ronin" parent="." instance=ExtResource( 7 )]
-position = Vector2( 35, 586 )
+position = Vector2( 1513, 334 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="ballAndChain2" parent="." instance=ExtResource( 8 )]
